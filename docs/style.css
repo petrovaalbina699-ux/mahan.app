@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHAN - Кофейня-кондитерская</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Loading screen -->
+        <div id="loading-screen" class="screen active">
+            <div class="loading-container">
+                <div class="logo">MAHAN</div>
+                <div class="tagline">КОФЕЙН��-КОНДИТЕРСКАЯ</div>
+                <div class="loader"></div>
+            </div>
+        </div>
 
+        <!-- Authentication screen -->
+        <div id="auth-screen" class="screen">
+            <div class="auth-container">
+                <div class="auth-logo">MAHAN</div>
+                <p class="auth-message">Добро пожаловать!</p>
+                <button id="auth-btn" class="btn btn-primary">Войти через Telegram</button>
+                <p class="auth-info">Данные защищены</p>
+            </div>
+        </div>
+
+        <!-- Main menu screen -->
+        <div id="menu-screen" class="screen">
+            <div class="header">
+                <div class="header-logo">MAHAN</div>
+                <div class="user-info">
+                    <span id="user-name">Пользователь</span>
+                    <button id="logout-btn" class="logout-btn">Выход</button>
+                </div>
+            </div>
+
+            <div class="menu-content">
+                <h2>Добро пожаловать!</h2>
+                <p class="subtitle">Выберите нужный раздел для работы</p>
+
+                <div class="menu-items">
+                    <div class="menu-item" data-section="reports">
+                        <div class="menu-icon">📊</div>
+                        <div class="menu-text">
+                            <h3>Отчет по смене</h3>
+                            <p>Фиксация доходов и расходов, закрытие смены</p>
+                        </div>
+                        <div class="menu-arrow">›</div>
+                    </div>
+
+                    <div class="menu-item" data-section="orders">
+                        <div class="menu-icon">🛍️</div>
+                        <div class="menu-text">
+                            <h3>Запрос на заказ</h3>
+                            <p>Создание запроса на индивидуальный или оптовый заказ</p>
+                        </div>
+                        <div class="menu-arrow">›</div>
+                    </div>
+
+                    <div class="menu-item" data-section="completed">
+                        <div class="menu-icon">✓</div>
+                        <div class="menu-text">
+                            <h3>Выполненный заказ</h3>
+                            <p>Отчет о выполненных индивидуальных заказах</p>
+                        </div>
+                        <div class="menu-arrow">›</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports section -->
+        <div id="reports-screen" class="screen">
+            <div class="section-header">
+                <button class="back-btn">← Назад</button>
+                <h2>Отчет по смене</h2>
+            </div>
+            <div class="section-content">
+                <p>Раздел будет настроен позже</p>
+            </div>
+        </div>
+
+        <!-- Orders section -->
+        <div id="orders-screen" class="screen">
+            <div class="section-header">
+                <button class="back-btn">← Назад</button>
+                <h2>Запрос на заказ</h2>
+            </div>
+            <div class="section-content">
+                <p>Раздел будет настроен позже</p>
+            </div>
+        </div>
+
+        <!-- Completed orders section -->
+        <div id="completed-screen" class="screen">
+            <div class="section-header">
+                <button class="back-btn">← Назад</button>
+                <h2>Выполненный заказ</h2>
+            </div>
+            <div class="section-content">
+                <p>Раздел будет настроен позже</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
