@@ -1,6 +1,6 @@
 // Configuration
 const CONFIG = {
-    GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/library/d/11QW77QyiS55_M8gRtmvmPEl2DMowFE7mCdfZdrvu5owhYNsoldmNgiE1/12', // Replace with your Google Apps Script URL
+    GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw6VZ-BQi1tNM2EaQsxOfCJqKCyr1BhOL_okZFXORRjCJTnVZwWIoy1WNVPRhvTsek/exec',
     SHEET_NAME: 'Users',
 };
 
@@ -88,6 +88,9 @@ async function authenticateUser(telegramUser) {
             
             console.log('Authentication successful:', state.currentUser);
             
+            // Update user display
+            updateUserDisplay();
+            
             // Load user to menu
             setTimeout(() => showScreen('menu'), 500);
         } else {
@@ -131,10 +134,14 @@ function showScreen(screenName) {
 // Setup event listeners
 function setupEventListeners() {
     // Auth button
-    buttons.auth.addEventListener('click', manualAuth);
+    if (buttons.auth) {
+        buttons.auth.addEventListener('click', manualAuth);
+    }
 
     // Logout button
-    buttons.logout.addEventListener('click', logout);
+    if (buttons.logout) {
+        buttons.logout.addEventListener('click', logout);
+    }
 
     // Menu items
     document.querySelectorAll('.menu-item').forEach(item => {
