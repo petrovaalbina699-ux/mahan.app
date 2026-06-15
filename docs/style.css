@@ -16,7 +16,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat fixed;
+    background: url('https://github.com/petrovaalbina699-ux/mahan.app/blob/feature/telegram-webapp/1.png') center/cover no-repeat fixed;
     background-attachment: fixed;
     color: var(--text-dark);
     overflow: hidden;
@@ -63,8 +63,7 @@ html, body {
 #loading-screen {
     justify-content: center;
     align-items: center;
-    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat;
-    background-color: rgba(166, 124, 82, 0.85);
+background: url('https://github.com/petrovaalbina699-ux/mahan.app/blob/feature/telegram-webapp/1.png') center/cover no-repeat fixed;    background-color: rgba(166, 124, 82, 0.85);
     background-blend-mode: overlay;
 }
 
@@ -111,7 +110,7 @@ html, body {
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat;
+    background: url('https://github.com/petrovaalbina699-ux/mahan.app/blob/feature/telegram-webapp/1.png') center/cover no-repeat;
     background-color: rgba(245, 241, 237, 0.92);
     background-blend-mode: lighten;
 }
@@ -230,7 +229,7 @@ html, body {
 /* Menu screen */
 #menu-screen {
     flex-direction: column;
-    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat fixed;
+    background: url('https://github.com/petrovaalbina699-ux/mahan.app/blob/feature/telegram-webapp/1.png') center/cover no-repeat fixed;
 }
 
 .menu-content {
@@ -321,7 +320,7 @@ html, body {
 #reports-screen,
 #orders-screen,
 #completed-screen {
-    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat fixed;
+    background: url('https://github.com/petrovaalbina699-ux/mahan.app/blob/feature/telegram-webapp/1.png') center/cover no-repeat fixed;
 }
 
 .section-header {
