@@ -16,7 +16,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #f5f1ed 0%, #ede5dd 100%);
+    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat fixed;
+    background-attachment: fixed;
     color: var(--text-dark);
     overflow: hidden;
 }
@@ -62,27 +63,31 @@ html, body {
 #loading-screen {
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #a67c52 0%, #8b6543 100%);
+    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat;
+    background-color: rgba(166, 124, 82, 0.85);
+    background-blend-mode: overlay;
 }
 
 .loading-container {
     text-align: center;
     color: white;
+    z-index: 10;
 }
 
 .logo {
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: 0.15em;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    height: 120px;
+    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/ChatGPT%20Image%2011%20июн.%202026%20г.,%2004_10_14.png') center/contain no-repeat;
+    margin: 0 auto 1.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .tagline {
     font-size: 0.95rem;
     letter-spacing: 0.1em;
-    opacity: 0.9;
+    opacity: 0.95;
     margin-bottom: 2rem;
+    font-weight: 300;
 }
 
 .loader {
@@ -106,31 +111,49 @@ html, body {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat;
+    background-color: rgba(245, 241, 237, 0.92);
+    background-blend-mode: lighten;
 }
 
 .auth-container {
     text-align: center;
     max-width: 320px;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 2.5rem 2rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
 }
 
 .auth-logo {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    letter-spacing: 0.1em;
+    width: 140px;
+    height: 90px;
+    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/ChatGPT%20Image%2011%20июн.%202026%20г.,%2004_10_14.png') center/contain no-repeat;
+    margin: 0 auto 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .auth-message {
     font-size: 1.3rem;
     color: var(--text-dark);
     margin-bottom: 2rem;
+    font-weight: 600;
 }
 
 .auth-info {
     font-size: 0.85rem;
     color: var(--text-light);
     margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.auth-info::before {
+    content: '🔒';
+    font-size: 1rem;
 }
 
 /* Buttons */
@@ -168,7 +191,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .header-logo {
@@ -181,6 +204,11 @@ html, body {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+#user-name {
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 .logout-btn {
@@ -196,23 +224,27 @@ html, body {
 
 .logout-btn:hover {
     background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Menu screen */
 #menu-screen {
     flex-direction: column;
+    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat fixed;
 }
 
 .menu-content {
     flex: 1;
     overflow-y: auto;
     padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.96);
 }
 
 .menu-content h2 {
     font-size: 1.5rem;
     color: var(--text-dark);
     margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
 .subtitle {
@@ -236,14 +268,15 @@ html, body {
     gap: 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border: 1.5px solid var(--border-color);
 }
 
 .menu-item:hover {
-    box-shadow: 0 4px 12px rgba(166, 124, 82, 0.15);
+    box-shadow: 0 6px 16px rgba(166, 124, 82, 0.18);
     transform: translateX(4px);
     border-color: var(--primary-color);
+    background: #fafaf8;
 }
 
 .menu-item:active {
@@ -251,7 +284,7 @@ html, body {
 }
 
 .menu-icon {
-    font-size: 2rem;
+    font-size: 2.2rem;
     min-width: 3rem;
     text-align: center;
 }
@@ -261,23 +294,36 @@ html, body {
 }
 
 .menu-text h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-dark);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
 }
 
 .menu-text p {
     font-size: 0.85rem;
     color: var(--text-light);
+    line-height: 1.4;
 }
 
 .menu-arrow {
     font-size: 1.5rem;
     color: var(--primary-color);
     font-weight: 300;
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover .menu-arrow {
+    transform: translateX(4px);
 }
 
 /* Section screens */
+#reports-screen,
+#orders-screen,
+#completed-screen {
+    background: url('https://raw.githubusercontent.com/petrovaalbina699-ux/my-tg-app/main/1781492966.png') center/cover no-repeat fixed;
+}
+
 .section-header {
     background: white;
     padding: 1rem 1.5rem;
@@ -285,6 +331,7 @@ html, body {
     align-items: center;
     gap: 1rem;
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .back-btn {
@@ -295,22 +342,33 @@ html, body {
     cursor: pointer;
     padding: 0.5rem;
     transition: all 0.2s ease;
+    font-weight: 500;
 }
 
 .back-btn:hover {
     color: #8b6543;
+    transform: translateX(-2px);
 }
 
 .section-header h2 {
     flex: 1;
     font-size: 1.3rem;
     color: var(--text-dark);
+    font-weight: 700;
 }
 
 .section-content {
     flex: 1;
     overflow-y: auto;
     padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.section-content p {
+    color: var(--text-light);
+    font-size: 1rem;
+    text-align: center;
+    padding: 2rem;
 }
 
 /* Scrollbar styling */
@@ -332,9 +390,44 @@ html, body {
 }
 
 /* Responsive design */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .logo {
-        font-size: 2.5rem;
+        width: 160px;
+        height: 100px;
+    }
+
+    .auth-logo {
+        width: 120px;
+        height: 75px;
+    }
+
+    .header {
+        padding: 1rem;
+    }
+
+    .header-logo {
+        font-size: 1.2rem;
+    }
+
+    .user-info {
+        gap: 0.5rem;
+    }
+
+    #user-name {
+        font-size: 0.85rem;
+    }
+
+    .logout-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .menu-content {
+        padding: 1rem;
+    }
+
+    .menu-content h2 {
+        font-size: 1.3rem;
     }
 
     .menu-item {
@@ -342,7 +435,50 @@ html, body {
     }
 
     .menu-icon {
+        font-size: 1.8rem;
+        min-width: 2.8rem;
+    }
+
+    .menu-text h3 {
+        font-size: 0.95rem;
+    }
+
+    .menu-text p {
+        font-size: 0.8rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .section-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo {
+        width: 140px;
+        height: 85px;
+    }
+
+    .auth-container {
+        padding: 1.5rem 1rem;
+        max-width: 280px;
+    }
+
+    .auth-logo {
+        width: 100px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+
+    .menu-item {
+        gap: 0.75rem;
+    }
+
+    .menu-icon {
         font-size: 1.5rem;
-        min-width: 2.5rem;
+        min-width: 2.3rem;
     }
 }
