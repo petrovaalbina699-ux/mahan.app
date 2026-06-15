@@ -1,7 +1,40 @@
 // Configuration
 const CONFIG = {
-    GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw6VZ-BQi1tNM2EaQsxOfCJqKCyr1BhOL_okZFXORRjCJTnVZwWIoy1WNVPRhvTsek/exec',
-    SHEET_NAME: 'Users',
+    GOOGLE_SCRIPT_URL: '',
+    SHEET_NAME: 'Users',// Отправить кнопку пользователю
+function sendWebAppButton(telegramUserId) {
+    const BOT_TOKEN = 'YOUR_BOT_TOKEN'; // Замените на ваш токен
+    const WEBAPP_URL = 'https://petrovaalbina699-ux.github.io/mahan.app/'; // Ваш URL
+
+    const payload = {
+        chat_id: telegramUserId,
+        text: '👋 Добро пожаловать в MAHAN!\n\nНажмите кнопку ниже, чтобы открыть приложение:',
+        reply_markup: {
+            inline_keyboard: [
+                [
+                    {
+                        text: '📱 Открыть MAHAN',
+                        web_app: {
+                            url: WEBAPP_URL
+                        }
+                    }
+                ]
+            ]
+        }
+    };
+
+    const options = {
+        method: 'post',
+        contentType: 'application/json',
+        payload: JSON.stringify(payload),
+        muteHttpExceptions: true
+    };
+
+    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+    const response = UrlFetchApp.fetch(url, options);
+    
+    return JSON.parse(response.getContentText());
+}
 };
 
 // State management
