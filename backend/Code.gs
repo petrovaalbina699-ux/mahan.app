@@ -2,7 +2,10 @@
 // This script manages user authentication and data storage
 
 // Configuration
-const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID'; // Replace with your Google Sheet ID
+const SPREADSHEET_ID = '1LtXv6p8n-yeu-NrScdl_vuZLGC-ar4pqPslIEALlh_g';
+const BOT_TOKEN = '8472781766:AAEgRPYd42NAVXTSsLB0hrs6XhBICDhC50M';
+const WEBAPP_URL = 'https://petrovaalbina699-ux.github.io/mahan.app/';
+
 const SHEET_NAMES = {
     USERS: 'Users',
     REPORTS: 'Reports',
@@ -10,26 +13,91 @@ const SHEET_NAMES = {
     COMPLETED_ORDERS: 'CompletedOrders',
 };
 
-// Main POST handler
+// Main POST handler for WebApp requests
 function doPost(e) {
     try {
-        const payload = JSON.parse(e.postData.contents);
-        const action = payload.action;
-
-        switch (action) {
-            case 'authenticate':
-                return handleAuthenticate(payload);
-            case 'saveData':
-                return handleSaveData(payload);
-            case 'getData':
-                return handleGetData(payload);
-            default:
-                return sendError('Unknown action: ' + action);
+        // Telegram webhook updates
+        if (e.postData && e.postData.contents) {
+            const payload = JSON.parse(e.postData.contents);
+            
+            // Check if this is a Telegram update
+            if (payload.message) {
+                return handleTelegramUpdate(payload);
+            }
+            
+            // Otherwise it's a WebApp request
+            const action = payload.action;
+            switch (action) {
+                case 'authenticate':
+                    return handleAuthenticate(payload);
+                case 'saveData':
+                    return handleSaveData(payload);
+                case 'getData':
+                    return handleGetData(payload);
+                default:
+                    return sendError('Unknown action: ' + action);
+            }
         }
+        
+        return sendSuccess({ message: 'OK' });
     } catch (error) {
         Logger.log('Error in doPost: ' + error);
         return sendError(error.toString());
     }
+}
+
+// Handle Telegram webhook updates
+function handleTelegramUpdate(payload) {
+    try {
+        const message = payload.message;
+        const chatId = message.chat.id;
+        const userId = message.from.id;
+        const text = message.text;
+        
+        Logger.log('Telegram message from ' + userId + ': ' + text);
+        
+        // Handle /start command
+        if (text === '/start') {
+            sendWebAppButton(chatId);
+        }
+        
+        return ContentService.createTextOutput('ok');
+    } catch (error) {
+        Logger.log('Error handling Telegram update: ' + error);
+        return ContentService.createTextOutput('error');
+    }
+}
+
+// Send WebApp button to user
+function sendWebAppButton(chatId) {
+    const payload = {
+        chat_id: chatId,
+        text: '👋 Добро пожаловать в MAHAN!\n\nНажмите кнопку ниже, чтобы открыть приложение:',
+        reply_markup: {
+            inline_keyboard: [
+                [
+                    {
+                        text: '📱 Открыть MAHAN',
+                        web_app: {
+                            url: WEBAPP_URL
+                        }
+                    }
+                ]
+            ]
+        }
+    };
+
+    const options = {
+        method: 'post',
+        contentType: 'application/json',
+        payload: JSON.stringify(payload),
+        muteHttpExceptions: true
+    };
+
+    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+    const response = UrlFetchApp.fetch(url, options);
+    
+    Logger.log('WebApp button sent: ' + response.getContentText());
 }
 
 // Handle user authentication
@@ -258,6 +326,11 @@ function sendError(message) {
             message: message,
         }))
         .setMimeType(ContentService.MimeType.JSON);
+}
+
+// GET handler for Telegram webhook verification
+function doGet(e) {
+    return HtmlService.createHtmlOutput('✅ MAHAN Telegram Bot is Active');
 }
 
 // Debug function - can be called manually
