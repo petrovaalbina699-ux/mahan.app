@@ -1,6 +1,6 @@
 // Configuration
 const CONFIG = {
-    GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/d/YOUR_SCRIPT_ID/usercontent', // Replace with your Google Apps Script URL
+    GOOGLE_SCRIPT_URL: 'https://script.google.com/macros/library/d/11QW77QyiS55_M8gRtmvmPEl2DMowFE7mCdfZdrvu5owhYNsoldmNgiE1/12', // Replace with your Google Apps Script URL
     SHEET_NAME: 'Users',
 };
 
